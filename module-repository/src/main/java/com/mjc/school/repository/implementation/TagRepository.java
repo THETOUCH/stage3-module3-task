@@ -13,7 +13,6 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Repository
-@Transactional
 public class TagRepository implements BaseRepository<TagModel, Long> {
     @PersistenceContext
     private EntityManager entityManager;
