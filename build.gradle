@@ -19,38 +19,56 @@ subprojects {
     }
 
     dependencies {
-        //SpringBoot task 2.7.7 JPA
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.7'
-
-        //H2
-        runtimeOnly 'com.h2database:h2'
-
-        //postgreSQL
-
-        runtimeOnly 'org.postgresql:postgresql'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.5'
-        implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-        //
-
         implementation "org.springframework:spring-context:$springVersion"
+        implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootStarter"
+        // https://mvnrepository.com/artifact/org.postgresql/postgresql
+        implementation "org.postgresql:postgresql:$postgresqlVersion"
+        // https://mvnrepository.com/artifact/com.h2database/h2
+        implementation 'com.h2database:h2:2.2.220'
+        // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+        implementation 'org.aspectj:aspectjweaver:1.9.19'
+        // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
+        testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootStarter"
         testImplementation "org.springframework:spring-test:$springVersion"
         testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
-        testImplementation "com.tngtech.archunit:archunit:$archUnitVersion"
+        testImplementation "com.tngtech.archunit:archunit-junit5:$archUnitVersion"
 
         annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
         implementation "org.mapstruct:mapstruct:$mapstructVersion"
-
-        implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.0'
-
-        implementation 'com.h2database:h2:2.1.214'
-
-        implementation 'org.postgresql:postgresql:42.5.4'
-
-        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+//        //SpringBoot task 2.7.7 JPA
+//        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.7'
+//
+//        //H2
+//        runtimeOnly 'com.h2database:h2'
+//
+//        //postgreSQL
+//
+//        runtimeOnly 'org.postgresql:postgresql'
+//        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.5'
+//        implementation 'org.springframework.boot:spring-boot-starter-validation'
+//
+//        //
+//
+//        implementation "org.springframework:spring-context:$springVersion"
+//
+//        testImplementation "org.springframework:spring-test:$springVersion"
+//        testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+//        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+//        testImplementation "com.tngtech.archunit:archunit:$archUnitVersion"
+//
+//        annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+//        implementation "org.mapstruct:mapstruct:$mapstructVersion"
+//
+//        implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.0'
+//
+//        implementation 'com.h2database:h2:2.1.214'
+//
+//        implementation 'org.postgresql:postgresql:42.5.4'
+//
+//        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
 
     }
