@@ -20,6 +20,6 @@ public class Main {
         TagController tagController = applicationContext.getBean(TagController.class);
 
         System.out.println(newsController);
-        System.out.println(authorController);
+        System.out.println(1);
     }
 }
