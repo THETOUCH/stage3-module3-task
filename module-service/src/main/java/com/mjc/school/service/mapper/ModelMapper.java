@@ -17,18 +17,14 @@ import java.util.stream.Collectors;
 public interface ModelMapper {
     List<NewsDtoResponse> modelListToDtoList(List<NewsModel> newsModelList);
 
-    @Mappings({
-            @Mapping(target = "author.id", source = "authorId"),
-            @Mapping(target = "tags", source = "tagsId", qualifiedByName = "tagModelToTagId")
-    })
+    @Mapping(target = "authorId", source = "author.id")
+    @Mapping(target = "tagsId", source = "tags", qualifiedByName = "tagModelToTagId")
     NewsDtoResponse modelToDto(NewsModel newsModel);
 
-    @Mappings({
-            @Mapping(target = "createDate", ignore = true),
-            @Mapping(target = "lastUpdatedDate", ignore = true),
-            @Mapping(target = "author.id", source = "authorId"),
-            @Mapping(target = "tags", source = "tagsId", qualifiedByName = "tagModelFromTagId")
-    })
+    @Mapping(target = "createDate", ignore = true)
+    @Mapping(target = "lastUpdatedDate", ignore = true)
+    @Mapping(target = "author.id", source = "authorId")
+    @Mapping(source = "tagsId", target = "tags", qualifiedByName = "tagModelFromTagId")
     NewsModel dtoToModel(NewsDtoRequest newsModelRequest);
 
     @Named("tagModelFromTagId")
