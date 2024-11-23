@@ -1,6 +1,7 @@
 package com.mjc.school.service.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record NewsDtoResponse(
         Long id,
@@ -8,6 +9,7 @@ public record NewsDtoResponse(
         String content,
         LocalDateTime createDate,
         LocalDateTime lastUpdatedDate,
-        Long authorId
+        Long authorId,
+        List<Long> tagsId
 ) {
 }

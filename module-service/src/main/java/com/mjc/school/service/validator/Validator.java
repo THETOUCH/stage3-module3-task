@@ -2,6 +2,7 @@ package com.mjc.school.service.validator;
 
 import com.mjc.school.service.dto.AuthorDtoRequest;
 import com.mjc.school.service.dto.NewsDtoRequest;
+import com.mjc.school.service.dto.TagDtoRequest;
 import com.mjc.school.service.exceptions.ValidatorException;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +11,11 @@ import static com.mjc.school.service.exceptions.ServiceErrorCode.*;
 @Component
 public class Validator {
     private static final String NEWS_ID = "News id";
+    private static final String TAG_ID = "Tag id";
     private static final String NEWS_CONTENT = "News content";
     private static final String AUTHOR_ID = "Author id";
     private static final String AUTHOR_NAME = "Author name";
+    private static final String TAG_NAME = "Tag name";
     private static final String NEWS_TITLE = "News title";
     private static final Integer NEWS_CONTENT_MIN_LENGTH = 5;
     private static final Integer NEWS_CONTENT_MAX_LENGTH = 255;
@@ -29,6 +32,10 @@ public class Validator {
         }
         return newsValidator;
     }*/
+
+    public void validateTagId(Long tagId) {
+        validateNumber(tagId, TAG_ID);
+    }
 
     public void validateNewsId(Long newsId) {
         validateNumber(newsId, NEWS_ID);
@@ -51,6 +58,10 @@ public class Validator {
 
     public void validateAuthorDto(AuthorDtoRequest dtoRequest) {
         validateString(dtoRequest.name(), AUTHOR_NAME, AUTHOR_NAME_MIN_LENGTH, AUTHOR_NAME_MAX_LENGTH);
+    }
+
+    public void validateTagDto(TagDtoRequest dtoRequest) {
+        validateString(dtoRequest.name(), TAG_NAME, AUTHOR_NAME_MIN_LENGTH, AUTHOR_NAME_MAX_LENGTH);
     }
 
     private void validateNumber(Long id, String parameter) {

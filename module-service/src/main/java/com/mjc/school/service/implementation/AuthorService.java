@@ -51,9 +51,6 @@ public class AuthorService implements BaseService<AuthorDtoRequest, AuthorDtoRes
     public AuthorDtoResponse create(AuthorDtoRequest dtoRequest) {
         validator.validateAuthorDto(dtoRequest);
         AuthorModel model = mapper.dtoToModel(dtoRequest);
-        LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
-        model.setCreateDate(date);
-        model.setLastUpdateDate(date);
         AuthorModel authorModel = authorRepository.create(model);
         return mapper.modelToAuthorDto(authorModel);
     }
@@ -64,8 +61,6 @@ public class AuthorService implements BaseService<AuthorDtoRequest, AuthorDtoRes
         validator.validateAuthorDto(dtoRequest);
         if (authorRepository.existById(dtoRequest.id())) {
             AuthorModel model = mapper.dtoToModel(dtoRequest);
-            LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
-            model.setLastUpdateDate(date);
             AuthorModel authorModel = authorRepository.update(model);
             return mapper.modelToAuthorDto(authorModel);
         } else {
