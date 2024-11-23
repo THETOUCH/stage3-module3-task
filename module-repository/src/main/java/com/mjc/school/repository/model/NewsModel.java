@@ -1,7 +1,8 @@
 package com.mjc.school.repository.model;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,9 +17,9 @@ public class NewsModel implements BaseEntity<Long> {
     private Long id;
     private String title;
     private String content;
-    @CreationTimestamp
+    @CreatedDate
     private LocalDateTime createDate;
-    @UpdateTimestamp
+    @LastModifiedDate
     private LocalDateTime lastUpdatedDate;
     @ManyToOne
     @JoinColumn(name = "author_id")

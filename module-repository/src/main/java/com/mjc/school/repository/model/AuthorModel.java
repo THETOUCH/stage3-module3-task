@@ -1,7 +1,7 @@
 package com.mjc.school.repository.model;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,9 +16,9 @@ public class AuthorModel implements BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @CreationTimestamp
+    @CreatedDate
     private LocalDateTime createDate;
-    @UpdateTimestamp
+    @LastModifiedDate
     private LocalDateTime lastUpdatedDate;
     @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
     private List<NewsModel> news;
